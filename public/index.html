@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Echtzeit Spiel</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="spieler-auswahl">
+      <div class="schwebefenster">
+        <div class="auswahl-bereich">
+          <button id="icon-links">←</button>
+          <span id="aktuelles-icon">😊</span>
+          <button id="icon-rechts">→</button>
+        </div>
+        <input type="text" id="spieler-name" placeholder="Dein Name" />
+        <button id="speichern-button">Speichern</button>
+      </div>
+    </div>
+    <div id="spiel-flaeche"></div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

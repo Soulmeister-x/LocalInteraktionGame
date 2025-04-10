@@ -1,0 +1,69 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+  overflow: hidden;
+}
+#spieler-auswahl {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 25vw;
+  height: 25vh;
+  pointer-events: auto;
+}
+.schwebefenster {
+  border: 2px solid #ccc;
+  background-color: white;
+  padding: 20px;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 1000;
+  width: 100%;
+  height: 100%;
+}
+.auswahl-bereich {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.auswahl-bereich button {
+  font-size: 1.5em;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+#aktuelles-icon {
+  font-size: 2em;
+  margin: 0 10px;
+}
+#spieler-name {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+#speichern-button {
+  padding: 10px 15px;
+  cursor: pointer;
+}
+#spiel-flaeche {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 10;
+  background-color: #f0f0f0;
+  pointer-events: none;
+}
+.spieler {
+  position: absolute;
+  font-size: 1.5em;
+}
+.spieler-name-anzeige {
+  position: absolute;
+  bottom: -1.2em;
+  font-size: 0.8em;
+  text-align: center;
+  width: 100%;
+}
