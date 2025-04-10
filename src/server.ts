@@ -56,6 +56,14 @@ io.on("connection", (socket) => {
     }
   })
 
+  socket.on("spieler-message", (messageData: { message: string }) => {
+    const playerId = socket.id
+    if (players[playerId]) {
+      console.log(`neue Nachricht (${playerId}):\n${messageData.message}`)
+      io.emit("spieler-message", { id: playerId, message: messageData.message })
+    }
+  })
+
   socket.on("disconnect", () => {
     console.log("Ein Benutzer hat sich getrennt:", socket.id)
     const playerIdToRemove = Object.keys(players).find(

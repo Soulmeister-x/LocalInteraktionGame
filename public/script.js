@@ -94,6 +94,36 @@ function zeigeSpieler(spieler) {
   spielFlaeche.appendChild(spielerDiv)
 }
 
+const chatMessage = document.getElementById("chat-message-input")
+function sendeChatMessage() {
+  const text = chatMessage.value.trim()
+  if (text) {
+    socket.emit("spieler-message", { message: text })
+  }
+}
+
+document
+  .getElementById("chat-send-button")
+  .addEventListener("click", sendeChatMessage)
+
+socket.on("spieler-message", (daten) => {
+  const spielerElement = document.getElementById(daten.id)
+  console.log(`neue message (${daten.id}):\n${daten.message}`)
+  if (spielerElement) {
+    const newMessage = document.createElement("div")
+    newMessage.classList.add("popup-chat-message")
+    newMessage.style.left = `${spielerElement.offsetLeft}px`
+    newMessage.style.top = `${spielerElement.offsetTop - 30}px`
+    newMessage.innerText = daten.message
+    spielFlaeche.appendChild(newMessage)
+
+    const anzeigeDauer = 4 + daten.message.length / 10
+    setTimeout(() => {
+      newMessage.remove()
+    }, anzeigeDauer * 1000)
+  }
+})
+
 window.addEventListener("keydown", (event) => {
   tastenZustand[event.key] = true
 })
